@@ -1,0 +1,42 @@
+org: david2407
+app: serverless-nodejs-api
+service: serverless-nodejs-api
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  environment:
+    DEBUG: ${env:DEBUG, 0}
+    STAGE: ${env:STAGE, "prod"}
+  iam:
+    role:
+      name: serverless-my-ssm-role
+      statements:
+        - Effect: 'Allow'
+          Resource: '*'
+          Action: 
+            - "ssm:GetParameter"
+            - "ssm:GetParameters"
+            - "ssm:GetParametersByPath"
+            - "ssm:GetParametersHistory"
+            - "ssm:DescribeParameters"
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi: '*'
+
+custom:
+  dotenv:
+    exclude:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_SESSION_TOKEN
+      - DATABASE_URL
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
