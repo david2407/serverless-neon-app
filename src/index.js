@@ -6,7 +6,6 @@ const validators = require('./db/validators')
 
 const app = express();
 const STAGE = process.env.STAGE || 'prod'
-console.log(process.env.AWS_ACCESS_KEY_ID)
 
 app.use(express.json())
 

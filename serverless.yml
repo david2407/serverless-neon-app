@@ -1,5 +1,3 @@
-org: david2407
-app: serverless-nodejs-api
 service: serverless-nodejs-api
 frameworkVersion: '3'
 useDotenv: true
