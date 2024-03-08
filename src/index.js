@@ -16,7 +16,7 @@ app.get("/", async (req, res, next) => {
   return res.status(200).json({
     delta: delta,
     stage: STAGE,
-    dev: 'David Cortes'
+    dev: 'David Cortes U'
   });
 });
 
