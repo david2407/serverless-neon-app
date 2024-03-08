@@ -15,7 +15,8 @@ app.get("/", async (req, res, next) => {
   const delta = (Date.now() - dbNowResults.now.getTime()) / 100
   return res.status(200).json({
     delta: delta,
-    stage: STAGE
+    stage: STAGE,
+    dev: 'David Cortes'
   });
 });
 
