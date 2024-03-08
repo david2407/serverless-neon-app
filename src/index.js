@@ -15,13 +15,14 @@ app.get("/", async (req, res, next) => {
   const delta = (Date.now() - dbNowResults.now.getTime()) / 100
   return res.status(200).json({
     delta: delta,
-    stage: STAGE
+    stage: STAGE,
+    dev: 'David Cortes U'
   });
 });
 
 app.get("/path", (req, res, next) => {
   return res.status(200).json({
-    message: "Hello from path!",
+    message: "Hello from path",
   });
 });
 
