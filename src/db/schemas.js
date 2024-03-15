@@ -9,4 +9,13 @@ const LeadTable = pgTable('leads', {
     createdAt: timestamp('created_at').defaultNow()
 });
 
+const UserTable = pgTable('users', {
+    id: serial('id').primaryKey().notNull(),
+    userName: text('text').notNull(),
+    email: text('text').notNull(),
+    tenantId: text('text'),
+    createdAt: timestamp('created_at').defaultNow()
+});
+
 module.exports.LeadTable = LeadTable
+module.exports.UserTable = UserTable

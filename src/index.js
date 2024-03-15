@@ -2,6 +2,7 @@ const serverless = require("serverless-http");
 const express = require("express");
 const { getDbClient } = require('./db/clients')
 const crud = require('./db/crud')
+const userCrud = require('./db/usersCrud')
 const validators = require('./db/validators')
 
 const app = express();
@@ -9,20 +10,20 @@ const STAGE = process.env.STAGE || 'prod'
 
 app.use(express.json())
 
-app.get("/", async (req, res, next) => {
+app.get("/delta", async (req, res, next) => {
   const sql = await getDbClient()
   const [dbNowResults] = await sql`select now();`
   const delta = (Date.now() - dbNowResults.now.getTime()) / 100
   return res.status(200).json({
-    delta: delta,
+    deltaResponse: delta,
     stage: STAGE,
-    dev: 'David Cortes U'
   });
 });
 
-app.get("/path", (req, res, next) => {
+app.get("/users", async (req, res, next) => {
+  const results = await userCrud.listUser()
   return res.status(200).json({
-    message: "Hello from path",
+    results: results
   });
 });
 
