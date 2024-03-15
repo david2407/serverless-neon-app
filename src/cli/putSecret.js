@@ -5,7 +5,7 @@ const secrets = require('../lib/secrets')
 const args = process.argv.slice(2)
 
 if (args.length !== 2) {
-    console.log('Usage: tsx src/cli/putSecrets.js <stage> <dbUrl>')
+    console.log('Usage: tsx src/cli/putSecret.js <stage> <dbUrl>')
     process.exit(1)
 }
 

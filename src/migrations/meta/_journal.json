@@ -8,6 +8,27 @@
       "when": 1709676241456,
       "tag": "0000_aspiring_gorgon",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1710518133737,
+      "tag": "0001_plain_true_believers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1710522094777,
+      "tag": "0002_certain_naoko",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1710528867845,
+      "tag": "0003_deep_mathemanic",
+      "breakpoints": true
     }
   ]
 }
